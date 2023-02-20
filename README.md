@@ -11,16 +11,13 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
 ## Date of birth 
 
  DateofBirth package is a package that doesnt need to be described :D everything is clear
 
 ## Installation
 
- 1. Add the latest version of package to your pubspec.yaml (and rundart pub get):
+ 1. Add the latest version of package to your pubspec.yaml (and run dart pub get):
  ```yaml
 dependencies:
   date_of_birth: ^0.0.1
