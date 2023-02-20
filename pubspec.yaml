@@ -1,6 +1,6 @@
 name: dateofbirth
 description: this package helps you to create a beautiful date picker type date of birth
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/ninehichem/date_of_birth
 
 environment:
