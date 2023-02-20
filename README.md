@@ -73,8 +73,7 @@ thanks a lot
 
 ## 🧑 Credits
 This packages has been created by[Nine Hichem].
-
-[Github]: https://github.com/ninehichem
-[Email]: ninehichem10@gmail.com
-[Whatsapp]: +213561875818
-[Linkedin]: https://www.linkedin.com/in/hichem-nine-5b9a98175/
+`Github`: https://github.com/ninehichem
+`Email`: ninehichem10@gmail.com
+`Whatsapp`: +213561875818
+`Linkedin`: https://www.linkedin.com/in/hichem-nine-5b9a98175/
