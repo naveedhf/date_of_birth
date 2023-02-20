@@ -20,7 +20,7 @@ and the Flutter guide for
  1. Add the latest version of package to your pubspec.yaml (and run dart pub get):
  ```yaml
 dependencies:
-  dateofbirth: ^0.0.1
+  dateofbirth: ^0.0.2.1
  ```
 
  ## Features
