@@ -66,11 +66,11 @@ class _DateOfBirthState extends State<DateOfBirth> {
    //List<String> days = DateFormat.EEEE(Platform.localeName).dateSymbols.DATEFORMATS;
    List<String> months = DateFormat.EEEE(Platform.localeName).dateSymbols.MONTHS;
 
-  int _currentyear = 0;
-  int _currentmonth = 0;
+  //int _currentyear = 0;
+  //int _currentmonth = 0;
  
-  DateTime _selectedDate = DateTime.utc(2000,1,1);
-  final DateTime _currentDate = DateTime.now();
+  DateTime _selectedDate = DateTime.now();
+  
   late List<int> listyears ;
       
 @override
@@ -85,8 +85,7 @@ class _DateOfBirthState extends State<DateOfBirth> {
   }
 
     int daysInMonth(int year,int month) {
-     
-      return DateTime(year == 0 ? _currentDate.year: year, month == 0 ? _currentDate.month+1: month+1, 0).day;
+      return DateTime(year, month+1 , 0).day;
     } 
   
     
@@ -94,18 +93,17 @@ class _DateOfBirthState extends State<DateOfBirth> {
   changeSelectedDate(DateTime datetime) {
     _selectedDate = datetime;
     setState(() { });
-
   }
 
-  changecurrentYear(int value) {
-    _currentyear = value;
-setState(() { });
-  }
+//   changecurrentYear(int value) {
+//     _currentyear = value;
+// setState(() { });
+//   }
 
-  changecurrentMonth(int value) {
-    _currentmonth = value;
- setState(() { });
-  }
+//   changecurrentMonth(int value) {
+//     _currentmonth = value;
+//  setState(() { });
+//   }
 
 
   @override
@@ -126,13 +124,13 @@ setState(() { });
                             child: Center(
                               child: _buildDays(
                                 daysinmonth: daysInMonth(
-                                  _currentyear, _currentmonth),
+                                  _selectedDate.year, _selectedDate.month),
                               onChanged: (newvalue) {
-                                changeSelectedDate(DateTime(
+                                 changeSelectedDate(DateTime(
                                     _selectedDate.year,
                                     _selectedDate.month,
                                     newvalue!));
-                                 
+
                                     widget.onDateTimeChanged!(_selectedDate) ;
                               },
                               selectedDate: _selectedDate.day,
@@ -156,14 +154,21 @@ setState(() { });
                                 width: width,
                                 listMonths: months,
                                 onChanged: (newvalue) {
-                                  changecurrentMonth(newvalue!);
-                                  changeSelectedDate(DateTime(
+                               int _currentmonthdays= daysInMonth(_selectedDate.year, newvalue!+1);
+                               if(_currentmonthdays  < _selectedDate.day ){
+                                changeSelectedDate(DateTime(
                                       _selectedDate.year,
-                                      newvalue,
+                                      newvalue+1,
+                                     _currentmonthdays));
+                               }else{
+                                changeSelectedDate(DateTime(
+                                      _selectedDate.year,
+                                      newvalue+1,
                                       _selectedDate.day));
+                               }    
                                       widget.onDateTimeChanged!(_selectedDate);
                                 },
-                                selectedDate: _selectedDate.month,
+                                selectedDate: _selectedDate.month-1,
                               ),
                             ),
                           ),          
@@ -181,13 +186,12 @@ setState(() { });
                             ),
                             child: Center(
                                 child: _buildYears(
-                                  
                                list: listyears,
                                 selectedDate: _selectedDate.year,
                                 onChanged: (newvalue) {
-                                  changecurrentYear(newvalue!);
+                                 // changecurrentYear(newvalue!);
                                   changeSelectedDate(DateTime(
-                                      newvalue,
+                                      newvalue!,
                                       _selectedDate.month,
                                       _selectedDate.day));
                                       widget.onDateTimeChanged!(_selectedDate);
@@ -206,10 +210,10 @@ setState(() { });
     return DropdownButton<int>(
         dropdownColor: widget.backgroundDropdownColor,
         alignment: Alignment.center,
-        icon:const Text(''),
+        icon: Text(''),
         elevation: 0,
-        underline: const Text(''),
-        key:const Key("2"),
+        underline: Text(''),
+        key: Key("2"),
         items: list.map((item) {
           return DropdownMenuItem<int>(
             value: item,
@@ -244,10 +248,10 @@ setState(() { });
       return DropdownButton(
         dropdownColor: widget.backgroundDropdownColor,
       alignment: Alignment.center,
-      icon:const Text(''),
+      icon: Text(''),
       elevation: 0,
-      underline:const Text(''),
-      key:const Key("0"),
+      underline: Text(''),
+      key: Key("0"),
       items: List.generate(
           listMonths.length,
           (index) => DropdownMenuItem(
@@ -281,22 +285,19 @@ setState(() { });
     );
   }
 
-
  _buildDays({required double width, required int selectedDate,required Function(int?) onChanged,required int daysinmonth}){
 
     return DropdownButton<int>(
       dropdownColor: widget.backgroundDropdownColor,
       alignment: Alignment.center,
-      icon:const Text(''),
+      icon: Text(''),
       elevation: 0,
-      underline:const Text(''),
-      key:const Key("0"),
+      underline: Text(''),
+      key: Key("0"),
       items: List.generate(daysinmonth, (index) => index + 1)
           .map(
             (value) => DropdownMenuItem<int>(
-              onTap: () {
-            
-              },
+              onTap: () {},
               value: value,
               child: Center(
                   child: Text(
