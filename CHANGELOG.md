@@ -5,3 +5,6 @@
 * changed miss spell in installation 
 ## 0.0.3
 * changed miss spell in installation 
+
+## 0.0.4
+* fixing bug: when selecting a february an error come out
