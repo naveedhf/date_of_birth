@@ -13,7 +13,7 @@ and the Flutter guide for
 
 ## Date of birth 
 
- DateofBirth package is a package that doesnt need to be described :D everything is clear
+ DateofBirth package is a package that helps you to pick date with style of date of birth like in web sites
 
 ## Installation
 
