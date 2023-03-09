@@ -8,3 +8,6 @@
 
 ## 0.0.4
 * fixing bug: when selecting a february an error come out
+
+## 0.0.5
+* changing description

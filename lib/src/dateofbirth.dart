@@ -154,12 +154,12 @@ class _DateOfBirthState extends State<DateOfBirth> {
                                 width: width,
                                 listMonths: months,
                                 onChanged: (newvalue) {
-                               int _currentmonthdays= daysInMonth(_selectedDate.year, newvalue!+1);
-                               if(_currentmonthdays  < _selectedDate.day ){
+                               int currentmonthdays= daysInMonth(_selectedDate.year, newvalue!+1);
+                               if(currentmonthdays  < _selectedDate.day ){
                                 changeSelectedDate(DateTime(
                                       _selectedDate.year,
                                       newvalue+1,
-                                     _currentmonthdays));
+                                     currentmonthdays));
                                }else{
                                 changeSelectedDate(DateTime(
                                       _selectedDate.year,
@@ -210,10 +210,10 @@ class _DateOfBirthState extends State<DateOfBirth> {
     return DropdownButton<int>(
         dropdownColor: widget.backgroundDropdownColor,
         alignment: Alignment.center,
-        icon: Text(''),
+        icon: const Text(''),
         elevation: 0,
-        underline: Text(''),
-        key: Key("2"),
+        underline:const Text(''),
+        key:const Key("2"),
         items: list.map((item) {
           return DropdownMenuItem<int>(
             value: item,
@@ -248,10 +248,10 @@ class _DateOfBirthState extends State<DateOfBirth> {
       return DropdownButton(
         dropdownColor: widget.backgroundDropdownColor,
       alignment: Alignment.center,
-      icon: Text(''),
+      icon:const Text(''),
       elevation: 0,
-      underline: Text(''),
-      key: Key("0"),
+      underline:const Text(''),
+      key:const Key("0"),
       items: List.generate(
           listMonths.length,
           (index) => DropdownMenuItem(
@@ -290,10 +290,10 @@ class _DateOfBirthState extends State<DateOfBirth> {
     return DropdownButton<int>(
       dropdownColor: widget.backgroundDropdownColor,
       alignment: Alignment.center,
-      icon: Text(''),
+      icon:const Text(''),
       elevation: 0,
-      underline: Text(''),
-      key: Key("0"),
+      underline:const Text(''),
+      key:const Key("0"),
       items: List.generate(daysinmonth, (index) => index + 1)
           .map(
             (value) => DropdownMenuItem<int>(
