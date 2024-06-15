@@ -64,7 +64,7 @@ class DateOfBirth extends StatefulWidget {
 class _DateOfBirthState extends State<DateOfBirth> {
   
    //List<String> days = DateFormat.EEEE(Platform.localeName).dateSymbols.DATEFORMATS;
-   List<String> months = DateFormat.EEEE(Platform.localeName).dateSymbols.MONTHS;
+   late List<String> months;
 
   //int _currentyear = 0;
   //int _currentmonth = 0;
@@ -80,7 +80,7 @@ class _DateOfBirthState extends State<DateOfBirth> {
       .toList()
       .reversed
       .toList();
-   
+   months = DateFormat.MMMM().dateSymbols.MONTHS;
     super.initState();
   }
 
